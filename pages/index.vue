@@ -18,6 +18,28 @@ export default {
           name: "description",
           content: "Este es la description",
         },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: "https://www.bellpi.com/",
+        },
+
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          hid: "twitter:url",
+          name: "twitter:url",
+          content: "https://www.bellpi.com/",
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: "Home bonaparte",
+        },
+        {
+          hid: "twitter:image",
+          name: "twitter:image",
+          content: "https://biz.bellpi.com/logo-bellpi-svg.svg",
+        },
       ],
     };
   },
