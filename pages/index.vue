@@ -23,6 +23,11 @@ export default {
           property: "og:url",
           content: "https://www.bellpi.com/",
         },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: "https://biz.bellpi.com/logo-bellpi-svg.svg",
+        },
 
         { name: "twitter:card", content: "summary_large_image" },
         {
