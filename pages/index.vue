@@ -4,48 +4,32 @@
 
 <script>
 export default {
-  data() {
-    return {
-      title: "Prueba Esteban",
-    };
+  async asyncData({ params }) {
+    const data = await fetch(
+      "https://admin.bonaparte.com.co/api/v1/product/aacute-rbol-de-levas-cummins-c-1317-5-9l-serie-6bt-ev0210003-49819"
+    ).then((res) => res.json());
+
+    console.log("este", data.data.seo);
+    return data.data.seo;
   },
   head() {
+    var metaTags = this.open_graph.map((tag) => {
+      return {
+        hid: tag.property,
+        name: tag.property,
+        content: tag.content,
+      };
+    });
+    metaTags = this.twitter_cards.map((tag) => {
+      return {
+        hid: tag.name,
+        name: tag.name,
+        content: tag.content,
+      };
+    });
     return {
-      title: this.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: "Este es la description",
-        },
-        {
-          hid: "og:url",
-          property: "og:url",
-          content: "https://www.bellpi.com/",
-        },
-        {
-          hid: "og:image",
-          property: "og:image",
-          content: "https://biz.bellpi.com/logo-bellpi-svg.svg",
-        },
-
-        { name: "twitter:card", content: "summary_large_image" },
-        {
-          hid: "twitter:url",
-          name: "twitter:url",
-          content: "https://www.bellpi.com/",
-        },
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "Home bonaparte",
-        },
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: "https://biz.bellpi.com/logo-bellpi-svg.svg",
-        },
-      ],
+      title: "Este es el titulo",
+      meta: metaTags,
     };
   },
 };
